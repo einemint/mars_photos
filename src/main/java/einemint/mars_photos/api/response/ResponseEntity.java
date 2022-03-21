@@ -1,12 +1,20 @@
 package einemint.mars_photos.api.response;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+import java.util.ArrayList;
+
 public class ResponseEntity {
-    private int id;
-    private int sol;
-    private Camera camera;
-    private String imgSrc;
-    private Rover rover;
+    @Setter
+    @Getter
+    ArrayList<Photo> photos;
+
+    public ResponseEntity() {
+        photos = new ArrayList<>();
+    }
+
+    public ResponseEntity(ArrayList<Photo> photos) {
+        this.photos = photos;
+    }
 }
