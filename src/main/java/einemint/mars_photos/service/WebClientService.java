@@ -1,7 +1,7 @@
 package einemint.mars_photos.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import einemint.mars_photos.api.request.RequestEntity;
+import einemint.mars_photos.api.request.Request;
 import einemint.mars_photos.api.response.Camera;
 import einemint.mars_photos.api.response.Photo;
 import einemint.mars_photos.api.response.Rover;
@@ -31,7 +31,7 @@ public class WebClientService {
     @Autowired
     private RoverRepository roverRepository;
 
-    public String getPhotosWithParameters(RequestEntity request) {
+    public String getPhotosWithParameters(Request request) {
         return webClient.get()
                 .uri(request.toString())
                 .retrieve()
@@ -39,7 +39,7 @@ public class WebClientService {
                 .block();
     }
 
-    public void addPhotos(String response) {
+    public void addPhotosToDatabase(String response) {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
