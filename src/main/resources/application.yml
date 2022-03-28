@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/mars_photos?useSSL=false
-    username: mars_photos
-    password: user1234
+    url:
+    username:
+    password:
   jpa:
     hibernate:
       ddl-auto: create
@@ -14,8 +14,8 @@ spring:
     generate-ddl: true
 
 application:
-  main_url: "https://api.nasa.gov/mars-photos/api/v1"
+  main-url: "https://api.nasa.gov/mars-photos/api/v1"
   rover: "curiosity"
-  earth_date: "2015-6-3"
+  earth-date: "2020-6-3"
   camera: "FHAZ"
-  api_key: "DEMO_KEY"
+  api-key: "DEMO_KEY"

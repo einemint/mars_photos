@@ -18,15 +18,15 @@ import javax.annotation.PostConstruct;
 public class ParsePhotosService {
     private String uri;
 
-    @Value("${application.main_url}")
+    @Value("${application.main-url}")
     private String mainUrl;
     @Value("${application.rover}")
     private String rover;
-    @Value("${application.earth_date}")
+    @Value("${application.earth-date}")
     private String earthDate;
     @Value("${application.camera}")
     private String camera;
-    @Value("${application.api_key}")
+    @Value("${application.api-key}")
     private String apiKey;
 
     @Autowired
@@ -50,30 +50,24 @@ public class ParsePhotosService {
         Photos photos = restTemplate.getForObject(uri, Photos.class);
 
         for (Photo photo : photos.getPhotos()) {
-            photo.setCameraId(addCamera(photos));
-            photo.setCameraId(addRover(photos));
+            photo.setCameraId(addCamera(photo));
+            photo.setCameraId(addRover(photo));
             photoRepository.save(photo);
         }
     }
 
-    private int addCamera(Photos photos) {
+    public int addCamera(Photo photo) {
         Camera camera = new Camera();
-
-        for (Photo photo : photos.getPhotos()) {
-            camera = photo.getCamera();
-            cameraRepository.save(camera);
-        }
+        camera = photo.getCamera();
+        cameraRepository.save(camera);
 
         return camera.getId();
     }
 
-    private int addRover(Photos photos) {
+    public int addRover(Photo photo) {
         Rover rover = new Rover();
-
-        for (Photo photo : photos.getPhotos()) {
-            rover = photo.getRover();
-            roverRepository.save(rover);
-        }
+        rover = photo.getRover();
+        roverRepository.save(rover);
 
         return rover.getId();
     }

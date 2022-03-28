@@ -16,11 +16,11 @@ public class WritePhotosService {
     @Autowired
     private PhotoRepository photoRepository;
 
-    public byte[] getImage(String imageUrl) {
+    private byte[] getImage(String imageUrl) {
         return restTemplate.getForObject(imageUrl, byte[].class);
     }
 
-    public void writeImage(byte[] image, String name) {
+    private void writeImage(byte[] image, String name) {
         try {
             Files.write(Paths.get("data/" + name) , image);
         }
