@@ -14,7 +14,8 @@ spring:
     generate-ddl: true
 
 application:
-  rover: curiosity
-  earth_date: 2015-6-3
-  camera: FHAZ
-  api_key: DEMO_KEY
+  main_url: "https://api.nasa.gov/mars-photos/api/v1"
+  rover: "curiosity"
+  earth_date: "2015-6-3"
+  camera: "FHAZ"
+  api_key: "DEMO_KEY"

@@ -1,5 +1,6 @@
-package einemint.mars_photos.api.response;
+package einemint.mars_photos.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -13,7 +14,9 @@ public class Rover {
     @Id
     private int id;
     private String name;
-    private String landing_date;
-    private String launch_date;
+    @JsonProperty("landing_date")
+    private String landingDate;
+    @JsonProperty("launch_date")
+    private String launchDate;
     private String status;
 }
