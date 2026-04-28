@@ -1,4 +1,6 @@
-# Mars photos utility
+## Note: This is an archived pet project from my early days as a PM learning backend architecture and Java principles (IoC, DI, Streams). For my current production work in Python and AI, please see my pinned repositories below.
+
+## Mars photos utility
 
 Mars photos utility saves on your PC photos of Mars taken by NASA rovers.
 
